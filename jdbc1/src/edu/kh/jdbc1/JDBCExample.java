@@ -33,6 +33,7 @@ public class JDBCExample {
 		// Connection을 통해
 		// SQL 문을 DB에 실행하고 
 		// 생성된 결과(ResultSet, 성공한 행의 개수)를 반환(Java)하는데 사용되는 개체
+		//* connection의 셔틀버스? 자바와 jdvc의 셔틀버스
 		
 		ResultSet rs = null;
 		// SLECT 질의 성공 시 반환되는
