@@ -12,6 +12,37 @@ public class Employee {
 	   private String jobName;	 // 직급명
 	   private int salary; 		// 급여
 	   
+	   private String deptCode; // 부서코드
+	   private String jobCode; // 직급코드
+	   public String getDeptCode() {
+		return deptCode;
+	}
+	   
+	   
+	// 매개변수 11개짜리 생성자
+	public Employee(int empId, String empName, String empNo, String email, String phone, int salary, String deptCode,
+			String jobCode, String salLevle, double bonus, int managerId) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevle = salLevle;
+		this.bonus = bonus;
+		this.managerId = managerId;
+	}
+
+
+
+
+	private String salLevle; // 급여등급
+	   private double bonus; // 보너스
+	   private int managerId; // 사수번호
+	   
 	   public Employee() { } // 기본 생성자
 
 	public Employee(int empId, String empName, String empNo, String email, String phone, String departmentTitle,
@@ -91,12 +122,57 @@ public class Employee {
 		this.salary = salary;
 	}
 
+
+	public void setDeptCode(String deptCode) {
+		this.deptCode = deptCode;
+	}
+
+	public String getJobCode() {
+		return jobCode;
+	}
+
+	public void setJobCode(String jobCode) {
+		this.jobCode = jobCode;
+	}
+
+	public String getSalLevle() {
+		return salLevle;
+	}
+
+	public void setSalLevle(String salLevle) {
+		this.salLevle = salLevle;
+	}
+
+	public double getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(double bonus) {
+		this.bonus = bonus;
+	}
+
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", empName=" + empName + ", empNo=" + empNo + ", email=" + email
 				+ ", phone=" + phone + ", departmentTitle=" + departmentTitle + ", jobName=" + jobName + ", salary="
-				+ salary + "]";
+				+ salary + ", deptCode=" + deptCode + ", jobCode=" + jobCode + ", salLevle=" + salLevle + ", bonus="
+				+ bonus + ", managerId=" + managerId + "]";
 	}
+	
+	
+	
+
+	
+	
 	   
 	
 	   
