@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -75,6 +76,15 @@ public class JDBCTemplate {
 	 */
 	public static void close (Connection conn) {
 		
+		try {
+			// 전달 받은 conn이
+			// 참조하는 Connection 객체가 있고
+			// 그 Connection 객체가 close 상태가 아니라면
+			if (conn != null && !conn.isClosed()) conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	// 오버로딩이라서 같은 close 이름을 갖고있어도 매개변수가 달라서 에러가 뜨지 않음.
@@ -84,7 +94,14 @@ public class JDBCTemplate {
 	 * @param stmt
 	 */
 	public static void close (Statement stmt) {
-		
+		try {
+			// 전달 받은 stmt가
+			// 참조하는 Statement 객체가 있고
+			// 그 Statment 객체가 close 상태가 아니라면
+			if(stmt != null && !stmt.isClosed())stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -92,7 +109,14 @@ public class JDBCTemplate {
 	 * @param rs
 	 */
 	public static void close (ResultSet rs) {
-		
+		try {
+		// 전달 받은 rs가
+		// 참조하는 ResultSet 객체가 있고
+		// 그 rs 객체가 close 상태가 아니라면
+		if(rs != null && !rs.isClosed())rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -100,7 +124,12 @@ public class JDBCTemplate {
 	 * @param conn
 	 */
 	public static void commit(Connection conn) {
-		
+		try {
+			// 연결되어 있는 Connection 객체일 경우에만 Commit 진행
+			if(conn != null && !conn.isClosed())conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -108,7 +137,12 @@ public class JDBCTemplate {
 	 * @param conn
 	 */
 	public static void rollback(Connection conn) {
-		
+		try {
+			// 연결되어 있는 Connection 객체일 경우에만 rollback 진행
+			if(conn != null && !conn.isClosed())conn.rollback();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
