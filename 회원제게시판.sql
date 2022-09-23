@@ -280,4 +280,18 @@ COMMIT;
 
 
 
+-- 게시글 수정
+UPDATE "BOARD" SET
+BOARD_TITLE = ?,
+BOARD_CONTENT = ?
+WHERE BOARD_NO;
+
+
+
+
+
+
+
+
+
 
